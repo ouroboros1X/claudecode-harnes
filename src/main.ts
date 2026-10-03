@@ -48,3 +48,15 @@ const stream = client.messages.stream({
 for await (const event of stream) {
   console.log(event);
 }
+
+for await (const event of stream){
+  if(event.type==="content_block_delta" && event.delta.type==="text_delta"){
+    process.stdout.write(event.delta.text);
+  }
+}
+
+const final = await stream.finalMessage();
+console.log(final);
+console.log(final.usage.input_tokens)
+console.log(final.usage.output_tokens)
+console.log(final.stop_reason)
