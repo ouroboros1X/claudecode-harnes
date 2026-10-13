@@ -63,7 +63,7 @@ export function createAnthropic(): Provider {
         client.messages.stream({
           model,
 
-          max_tokens: 3000,
+          max_tokens: 2000,
 
           system,
 
